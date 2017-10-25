@@ -36,7 +36,7 @@ $(function() {
         it('URL defined', function () {
             for (var x=0; x< allFeeds.length; x++ ) {
                 expect(allFeeds[x].url).toBeDefined();
-                expect(allFeeds[x].url.length).not.toBe(0);
+                expect(allFeeds[x].url).not.toBe(0);
             }
         }); 
 
@@ -101,8 +101,7 @@ $(function() {
         });
 
         it('loadFeed() works', function(){
-            expect(entry).not.toBeEmpty();
-            expect(feed).toExist();
+            expect(entry).not.toBe(0);
         }); 
     });
 
