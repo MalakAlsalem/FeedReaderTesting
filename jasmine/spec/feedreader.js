@@ -107,9 +107,8 @@ $(function() {
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe ('New Feed Selection', function() {
-        var content = $('.feed').html();
-        var firstFeed; 
-        var secondFeed;
+        var first; 
+        var second;
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
@@ -117,17 +116,18 @@ $(function() {
          */
         beforeEach(function(done) {
             loadFeed(0, function() {
-                firstFeed = content;
-                done();
+                first = $('.feed').html();
+                loadFeed(1, function() {
+                    second = $('.feed').html();
+                    done();
+                });
+
             });
         });      
 
         it('changes display', function(done) {
-            loadFeed(1, function() {
-                secondFeed = content;
-                expect(secondFeed).not.toEqual(firstFeed);
-                done();
-            });
+            expect(first!= second).toBe(true);
+            done();
         });
     });
 }());
